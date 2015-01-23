@@ -3,12 +3,17 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
   {{> hello}}
 </body>
 
 <template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+  {{#wrapper}}
+    <p>I'd like to echo this template instance inside the wrapper but it doesn't work because template scope is different.</p>
+    {{thisShouldOutputHello}}
+  {{/wrapper}}
+  <p>But it works out here: {{thisShouldOutputHello}}</p>
+</template>
+
+<template name="wrapper">
+  {{> UI.contentBlock}}
 </template>
